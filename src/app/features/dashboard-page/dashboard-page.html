@@ -1,0 +1,37 @@
+<main class="dashboard">
+    <section class="dashboard__top">
+        <app-search-panel (querySubmitted)="onSearch($event)" [loading]="loading()"/>
+    </section>
+
+    {{weather() | json}}
+    <div class="dashboard__content" *ngIf="weather() as weatherData;else prompt">
+        <app-hero-banner
+        [locationName]="weatherData.location.name"
+        [region]="weatherData.location.region"
+        [country]="weatherData.location.country"
+        [localTime]="weatherData.location.localtime"
+        [description]="weatherData.current.condition.text"
+        [temperature]="units() === 'c' ? weatherData.current.temp_c :weatherData.current.temp_f"
+        [feelsLike]="units() === 'c' ? weatherData.current.feelslike_c : weatherData.current.feelslike_f"
+        [units]="units()"
+        [isDay]="weatherData.current.is_day === 1"
+        />
+    </div>
+
+    <aside class="dashboard__search-results" *ngIf="searchResults().length">
+        <h3>Select a location</h3>
+        <ul>
+            <li *ngFor="let result of searchResults()" (click)="onSelect(result)">
+                <strong>{{result.name}}</strong>
+                <small>{{result.region}}, {{result.country}}</small>
+            </li>
+        </ul>
+    </aside>
+
+    <ng-template #prompt>
+        <section class="dashboard__empty">
+            <h2>Search for Country, city to begin</h2>
+            <p>Use the box above to look up any location worldwide and see the current weather and forecase</p>
+        </section>
+    </ng-template>
+</main>

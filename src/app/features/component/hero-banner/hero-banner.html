@@ -1,0 +1,9 @@
+<section class="hero">
+    <div class="hero__meta">
+        <div class="hero_badge" [class.hero__badge--night]="!isDay()">
+            <span>{{badgeLabel()}}</span>
+        </div>
+
+        <h1 class="hero__title">{{locationName()}}</h1>
+    </div>
+</section>

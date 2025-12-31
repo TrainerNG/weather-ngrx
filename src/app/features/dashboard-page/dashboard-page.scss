@@ -1,0 +1,26 @@
+.dashboard{
+    display: grid;
+    gap: 2.5rem;
+    padding: 1.5rem 3rem;
+    color: #f5f9ff;
+}
+
+.dashboard__top{
+    display: grid;
+    gap: 1.5rem;
+}
+
+.dashboard__empty{
+    background-color: rgba(15,23,42,0.45);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 24px;
+    padding: 2rem;
+    text-align: center;
+    display: grid;
+    gap: 0.75rem;
+}
+
+h2 {
+   margin: 0;
+   font-size: 1.4rem;
+    }

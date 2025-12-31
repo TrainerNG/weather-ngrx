@@ -1,0 +1,11 @@
+<form class="search" (submit)="onSubmit($event)">
+    <div class="search__field">
+        <span class="search__icon">i</span>
+        <input type="search" class="search__input" [placeholder]="placeholder()"
+        [value]="query()"
+        (input)="onInput($event)" />
+        <button class="search__submit" type="submit" [disabled]="loading()">
+            {{loading() ? 'Searching...' : 'Search'}}
+        </button>
+    </div>
+</form>
