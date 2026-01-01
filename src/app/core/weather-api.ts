@@ -20,7 +20,7 @@ export class WeatherApi {
 
   getWeather(location: LocationSearchResult): Observable<WeatherResponse>{
     const params = new HttpParams().set('key', this.key).set('q', `${location.lat},${location.lon}`)
-    .set('days','3')
-    return this.http.get<WeatherResponse>(`${this.baseUrl}/forecase.json`,{params});
+    .set('days','3');
+    return this.http.get<WeatherResponse>(`${this.baseUrl}/forecast.json`,{params});
   }
 }

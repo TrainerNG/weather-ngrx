@@ -27,6 +27,13 @@ export class WeatherEffects {
     )
   )
 
+  readonly selectLocation$= createEffect(() =>
+  this.actions$.pipe(
+    ofType(weatherActions.selectLocation),
+    map(({location}) => weatherActions.loadWeather({location}))
+  )
+  )
+
   readonly loadWeather$ = createEffect(()=>
   this.actions$.pipe(
     ofType(weatherActions.loadWeather),

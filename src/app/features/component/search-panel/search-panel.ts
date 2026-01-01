@@ -16,11 +16,11 @@ export class SearchPanel {
 
   onSubmit(event: Event) {
     event?.preventDefault();
-  const trimmed = this.query().trim();
-  if(!trimmed){
-    return;
-  }
-  this.querySubmitted.emit(trimmed);
+    const trimmed = this.query().trim();
+    if (!trimmed) {
+      return;
+    }
+    this.querySubmitted.emit(trimmed);
   }
   protected onInput(event: Event) {
     const value = (event.target as HTMLInputElement).value;

@@ -1,8 +1,9 @@
+import { CommonModule } from '@angular/common';
 import { Component, computed, input } from '@angular/core';
 
 @Component({
   selector: 'app-hero-banner',
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './hero-banner.html',
   styleUrl: './hero-banner.scss',
 })
@@ -19,4 +20,8 @@ readonly isDay = input<boolean>(true);
 
 protected readonly unitSymbol = computed(()=> (this.units() === 'c' ? 'Celcius' : 'Fahrenheit'));
 protected readonly badgeLabel = computed(()=> (this.isDay() ? 'Daytime' : 'Nighttime'));
+protected readonly locationSubtitle = computed(()=>
+[this.region(), this.country()].filter((part)=>!!part)
+.join(', ')
+)
 }

@@ -38,6 +38,23 @@ const reducer = createReducer(
         loading: true,
         error: null
     })),
+
+     on(weatherActions.searchLocationsSuccess,(state,{results})=>(
+        {
+            ...state,
+            loading: false,
+            searchResults: results
+        }
+    )),
+
+ on(weatherActions.searchLocationsFailure,(state,{error})=>(
+        {
+            ...state,
+            loading: false,
+            error
+        }
+    )),
+
     on(weatherActions.loadWeather,(state)=>(
         {
             ...state,

@@ -2,8 +2,6 @@
     <section class="dashboard__top">
         <app-search-panel (querySubmitted)="onSearch($event)" [loading]="loading()"/>
     </section>
-
-    {{weather() | json}}
     <div class="dashboard__content" *ngIf="weather() as weatherData;else prompt">
         <app-hero-banner
         [locationName]="weatherData.location.name"

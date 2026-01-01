@@ -1,9 +1,27 @@
 <section class="hero">
     <div class="hero__meta">
-        <div class="hero_badge" [class.hero__badge--night]="!isDay()">
+        <div class="hero__badge" [class.hero__badge--night]="!isDay()">
             <span>{{badgeLabel()}}</span>
         </div>
 
         <h1 class="hero__title">{{locationName()}}</h1>
+        <p class="hero__subtitle" *ngIf="locationSubtitle()">
+            {{locationSubtitle()}}
+        </p>
+        <p class="hero__time" *ngIf="localTime()">
+            {{localTime()}}
+        </p>
+    </div>
+
+    <div class="hero__visual">
+        <div class="hero__temperature">
+            <span class="hero__temp-value">{{temperature() | number : '1.0-0'}}</span>
+            <span class="hero__temp-unit">{{unitSymbol()}}</span>
+        </div>
+
+        <div class="hero__condition">
+            <p class="hero__description">{{description()}}</p>
+            <p class="hero__feels">Feels like {{feelsLike() | number : '1.0-0'}} {{unitSymbol()}}</p>
+        </div>
     </div>
 </section>
