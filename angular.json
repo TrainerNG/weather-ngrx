@@ -69,6 +69,19 @@
           },
           "defaultConfiguration": "development"
         },
+
+         "john": {
+          "builder": "@angular/build:dev-server",
+          "configurations": {
+            "production": {
+              "buildTarget": "weather-dashboard:build:production"
+            },
+            "development": {
+              "buildTarget": "weather-dashboard:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
         "test": {
           "builder": "@angular/build:unit-test"
         }
