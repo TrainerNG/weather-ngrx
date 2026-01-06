@@ -15,5 +15,6 @@ export const weatherActions = createActionGroup({
         'Load Weather': props<{location: LocationSearchResult}>(),
         'Load Weather Success': props<{weather: WeatherResponse}>(),
         'Load Weather Failure': props<{error: string}>(),
+        
     }
 })
